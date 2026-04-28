@@ -12,6 +12,7 @@ api.interceptors.request.use(req => {
 
 export const registerUser = (data) => api.post('/users/register', data);
 export const loginUser = (data) => api.post('/users/login', data);
+export const getCaptcha = () => api.get('/captcha');
 export const getHomestays = (params) => api.get('/homestays', { params });
 export const deleteHomestay = (id) => api.delete(`/homestays/${id}`);
 export const updateHomestay = (id, data) => api.put(`/homestays/${id}`, data);

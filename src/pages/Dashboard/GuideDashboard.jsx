@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api, { uploadFile, updateGuide } from '../../services/api';
+import api, { uploadFile, updateGuide, API_BASE_URL } from '../../services/api';
 
 function GuideDashboard() {
   const [profile, setProfile] = useState(null);
@@ -143,7 +143,7 @@ function GuideDashboard() {
               ) : (
                 <div className="card" style={{ padding: '0px', display: 'flex', flexDirection: 'column', height: '100%' }}>
                   {profile.imageUrl ? (
-                    <img src={`http://localhost:8080${profile.imageUrl}`} alt="Profile" style={{ height: 250, objectFit: 'cover' }} />
+                    <img src={`${API_BASE_URL}${profile.imageUrl}`} alt="Profile" style={{ height: 250, objectFit: 'cover' }} />
                   ) : (
                     <div style={{ height: 250, background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', color: '#888' }}>No Photo</div>
                   )}

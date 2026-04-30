@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getGuides, createGuideBooking } from '../services/api';
+import { getGuides, createGuideBooking, API_BASE_URL } from '../services/api';
 
 function Guides() {
     const [guides, setGuides] = useState([]);
@@ -74,7 +74,7 @@ function Guides() {
                         
                         <div style={{ width: 140, height: 140, borderRadius: '50%', margin: '0 auto 24px', overflow: 'hidden', boxShadow: '0 12px 32px rgba(0,0,0,0.12)', border: '4px solid #FFF' }}>
                             {guide.imageUrl ? (
-                                <img src={`http://localhost:8080${guide.imageUrl}`} alt="Guide Profile" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <img src={`${API_BASE_URL}${guide.imageUrl}`} alt="Guide Profile" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             ) : (
                                 <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#555', fontSize: '0.9rem', fontWeight: 600 }}>NO PHOTO</div>
                             )}

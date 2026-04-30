@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getContainers, getContainerItems, getHomestayById } from '../services/api';
+import { getContainers, getContainerItems, getHomestayById, API_BASE_URL } from '../services/api';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Home() {
@@ -96,7 +96,7 @@ function Home() {
                     <>
                       <div className="card-image-wrapper">
                         {item.details.imageUrl ? (
-                          <img src={`http://localhost:8080${item.details.imageUrl}`} alt="Homestay" loading="lazy" />
+                          <img src={`${API_BASE_URL}${item.details.imageUrl}`} alt="Homestay" loading="lazy" />
                         ) : (
                           <div style={{ height: '100%', background: '#F9F9F9', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ccc' }}>No Cover Image</div>
                         )}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import api, { getHomestayById } from '../services/api';
+import api, { getHomestayById, API_BASE_URL } from '../services/api';
 
 function HomestayDetails() {
   const { id } = useParams();
@@ -68,7 +68,7 @@ function HomestayDetails() {
       {/* Main Image Banner */}
       <div style={{ width: '100%', height: '400px', backgroundColor: '#F0F0F0', borderRadius: '16px', overflow: 'hidden', marginBottom: 40, boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
         {homestay.imageUrl ? (
-          <img src={`http://localhost:8080${homestay.imageUrl}`} alt="Homestay" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={`${API_BASE_URL}${homestay.imageUrl}`} alt="Homestay" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         ) : (
           <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ccc', fontSize: '1.2rem' }}>
             No Property Photos Available

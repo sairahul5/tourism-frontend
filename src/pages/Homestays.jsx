@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getHomestays } from '../services/api';
+import { getHomestays, API_BASE_URL } from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
 function Homestays() {
@@ -37,7 +37,7 @@ function Homestays() {
         {homestays.map(homestay => (
           <div className="card" key={homestay.id} onClick={() => navigate(`/homestays/${homestay.id}`)} style={{ cursor: 'pointer' }}>
             {homestay.imageUrl ? (
-              <img src={`http://localhost:8080${homestay.imageUrl}`} alt="Homestay" />
+              <img src={`${API_BASE_URL}${homestay.imageUrl}`} alt="Homestay" />
             ) : (
               <div style={{ height: 240, background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>No Image</div>
             )}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'https://tourism-backend-5aj9.onrender.com/api' });
+export const API_BASE_URL = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/api$/, '') : 'https://tourism-backend-5aj9.onrender.com';
 
 api.interceptors.request.use(req => {
     const token = localStorage.getItem('token');

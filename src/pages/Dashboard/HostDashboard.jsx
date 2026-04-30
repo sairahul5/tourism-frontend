@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api, { uploadFile, getBookingsByHost, updateBookingStatus } from '../../services/api';
+import api, { uploadFile, getBookingsByHost, updateBookingStatus, API_BASE_URL } from '../../services/api';
 
 function HostDashboard() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -94,7 +94,7 @@ function HostDashboard() {
             {homestays.map(h => (
               <div key={h.id} className="card" style={{ padding: '0px' }}>
                 {h.imageUrl ? (
-                  <img src={`http://localhost:8080${h.imageUrl}`} alt="Homestay" style={{ height: 160 }} />
+                  <img src={`${API_BASE_URL}${h.imageUrl}`} alt="Homestay" style={{ height: 160 }} />
                 ) : (
                   <div style={{ height: 160, background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>No Image</div>
                 )}
